@@ -26,6 +26,7 @@
                     <% if user_signed_in? %>
                         <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
                         <li class="divider"></li>
+                        <li><%= link_to "Account (non modal)", edit_user_registration_path %></li>
                         <li><a href="#" data-toggle="modal" data-target="#accountModal">Account</a></li>
                     <% else %>
                         <li><a href="#" data-toggle="modal" data-target="#signUpModal">Sign up</a></li>

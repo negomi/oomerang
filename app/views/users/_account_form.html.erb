@@ -23,9 +23,9 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.submit "Update" %></div>
+  <div><%= f.submit "Update", class: 'btn btn-default btn-medium' %></div>
 <% end %>
 
 <h3>Unhappy?</h3>
 
-<p><%= button_to "Cancel my account", user_registration_path, :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<p><%= button_to "Cancel my account", user_registration_path, class: 'btn btn-default btn-medium', :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
