@@ -12,6 +12,11 @@
 </head>
 <body>
 
+<!-- Modals -->
+<%= render "sign_in_modal" %>
+<%= render "sign_up_modal" %>
+<%= render "account_modal" %>
+
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <a href="/"><span class="navbar-brand">oomerang</span></a>
         <ul class="nav navbar-nav navbar-right">
@@ -21,10 +26,10 @@
                     <% if user_signed_in? %>
                         <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
                         <li class="divider"></li>
-                        <li><%= link_to 'Account', edit_user_registration_path %></li>
+                        <li><a href="#" data-toggle="modal" data-target="#accountModal">Account</a></li>
                     <% else %>
-                        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-                        <li><%= link_to 'Sign in', new_user_session_path %></li>
+                        <li><a href="#" data-toggle="modal" data-target="#signUpModal">Sign up</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#signInModal">Sign in</a></li>
                     <% end %>
                 </ul>
             </li>

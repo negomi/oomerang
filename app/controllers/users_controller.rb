@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  include UsersHelper
+
   def new
   end
 
