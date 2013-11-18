@@ -28,6 +28,7 @@ function autoComp() {
   }
   generalMarker.setPosition(place.geometry.location);
   generalMarker.setVisible(true);
+  $('#searchTextField').val("");
 
   var contentString = JST['templates/selectItem']();
 

@@ -251,5 +251,29 @@ function isLoggedIn(){
   return response;
 }
 
+///////// Contact Founder
+function contactFounder(){
+  if(isLoggedIn()==false){
+    var foundForm = JST['templates/pleaseLogIn']();
+    $('#dynamicDiv').empty();
+    $("#dynamicDiv").append(foundForm);
+  }
+  else
+    alert("hola");
+
+}
+
+///////// Contact Seeker
+function contactSeeker(){
+  if(isLoggedIn()==false){
+    var foundForm = JST['templates/pleaseLogIn']();
+    $('#dynamicDiv').empty();
+    $("#dynamicDiv").append(foundForm);
+  }
+  else
+    alert("hola");
+}
+
+
 
 
