@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  
+
   def index
     items = Item.all
     itemsInfo = []
@@ -79,7 +79,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-  
+
   end
 
   def update

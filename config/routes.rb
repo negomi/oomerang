@@ -11,4 +11,6 @@ Oomerang::Application.routes.draw do
 
   
 
+  get "/mailertest" => "users#mailertest"
+
 end

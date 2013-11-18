@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+     </head>
+     <body>
+          <p>
+              Hi <%= @seeker.name %>,<br/><br/>
+              You have successfully <%= @processed %> the following lost item:
+              &nbsp;&nbsp;&nbsp;&nbsp;<ul>
+                <li>Name: <%= @lost_item.title %></li>
+                <li>Color: <%= @lost_item.color %></li>
+                <li>Details: <%= @lost_item.details %></li>
+                <li>Specific info: <%= @lost_item.secret_info %></li>
+              </ul><br/>
+              We hope your item is returned soon,<br/><br/>
+              The Oomerangers<br/><br/>
+              <hr>
+              Item returned? Please update Oomerang here: <%= @returned_url %><br/><br/>
+              Lost it? Found it? <a href="http://www.oomerang.it">Oomerang.it</a>!<br/>
+          </p>
+     </body>
+</html>

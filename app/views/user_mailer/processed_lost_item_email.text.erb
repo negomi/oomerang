@@ -1,0 +1,17 @@
+Hi <%= @seeker.name %>,
+
+You have successfully <%= @processed %> the following lost item:
+
+  Name: <%= @lost_item.title %>
+  Color: <%= @lost_item.color %>
+  Details: <%= @lost_item.details %>
+  Specific info: <%= @lost_item.secret_info %>
+
+
+We hope your item is returned soon,
+
+The Oomerangers
+---------------
+Item returned? Please update Oomerang here: <%= @returned_url %>
+
+Lost it? Found it? Oomerang.it!

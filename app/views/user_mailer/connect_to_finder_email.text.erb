@@ -1,0 +1,24 @@
+Hi <%= @finder.name %>,
+
+The item you found: <%= @found_item.title %>
+... may be <%= @seeker.name %>'s lost item:
+
+    Name:    <%= @lost_item.title %>
+    Color:   <%= @lost_item.color %>
+    Details: <%= @lost_item.details %>
+
+<%= @seeker.name %> provided the following additional specific information about their lost item:
+
+    <%= @lost_item.secret_info %>
+
+Please reply to <%= @seeker.email %> if you think its their item.
+
+
+Thanks for trying to making someone's life a little better,
+
+The Oomerangers
+
+---------------
+Item returned? Please update Oomerang here: <%= @returned_url %>
+
+Lost it? Found it? Oomerang.it!

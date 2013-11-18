@@ -67,4 +67,23 @@ Oomerang::Application.configure do
 
   # Defines default url options for production environment
   config.action_mailer.default_url_options = { :host => 'http://oomerang.herokuapp.com/' }
+
+  #
+  # sjgjohnston: code below added for action mailer
+  #
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.smtp_settings = {
+    authentication: "plain",
+    address: "smtpout.secureserver.net",
+    port: 80,
+    domain: "www.oomerang.it",
+    user_name: ENV["EMAIL_SENDER_ADDRESS"],
+    password: ENV["EMAIL_SENDER_PASSWORD"],
+    openssl_verify_mode: "none",
+    enable_starttls_auto: "true"
+  }
+
 end

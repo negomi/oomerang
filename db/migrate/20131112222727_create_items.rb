@@ -11,7 +11,6 @@ class CreateItems < ActiveRecord::Migration
       t.string :status
       t.references :finder
       t.references :seeker
-      t.string :title
 
       t.timestamps
     end

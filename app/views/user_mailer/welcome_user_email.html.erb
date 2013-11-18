@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+     </head>
+     <body>
+          <h3> Welcome <%= @user.name %>!</h3>
+          <p>
+               Welcome to <a href="http://www.oomerang.it">oomerang.it</a> - we hope it makes your life a little better.<br/><br/>
+               You have successfully signed up!<br/><br/>
+               Your username is: <%= @user.username %><br/><br/>
+               Go here to login: <%= @login_url %><br/><br/><br/>
+               Thanks for joining,<br/><br/>
+               The Oomerangers<br/><br/>
+               <hr>
+               Lost it? Found it? <a href="http://www.oomerang.it">Oomerang.it</a>!<br/>
+          </p>
+     </body>
+</html>
