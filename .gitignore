@@ -14,6 +14,7 @@
 /log/*.log
 /tmp
 .DS_Store
+.env
 
 # Ignore vendor bundle
 /vendor/bundle

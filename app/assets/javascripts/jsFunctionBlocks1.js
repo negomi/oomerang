@@ -202,7 +202,7 @@ function newLostItem() {
     closeDynamicDiv();
     generalMarker.setMap(null);
     loadMarkers();
-  } 
+  }
 }
 
 ///////// Create new Found Item in database
@@ -240,7 +240,7 @@ function newFoundItem() {
 
 ///////// Check if user is logged in
 function isLoggedIn(){
-  var response; 
+  var response;
   $.ajax( "/users/logged", {
     type: "get",
     async: false,
@@ -248,6 +248,7 @@ function isLoggedIn(){
       response = data[0];
     }
   });
+  console.log('hola');
   return response;
 }
 
