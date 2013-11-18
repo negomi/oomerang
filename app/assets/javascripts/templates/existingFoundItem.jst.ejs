@@ -1,6 +1,6 @@
 <div id='lostFormWrap'>
   <!-- <form method="get" action="/users/sign_in"> -->
-    <div class="lostLabel"><%= value.cat2 %> lost</div>
+    <div class="lostLabel">FOUND ITEM</div>
     <div class='whiteBackground'>
         <h3 class="formTitle"><%= value.title%></h3>
         <div id='separator'></div>
@@ -11,7 +11,7 @@
         <p class='itemP'><span class='boldText'>Time Found:&nbsp;&nbsp;</span><%= value.time%></p>
         <p class='itemP'><span class='boldText'>Place Description:&nbsp;&nbsp;</span><%= value.place%></p>
 
-        <button align='middle' class='buttonClass'>Contact Person</button>
+        <button align='middle' class='buttonClass'onclick='contactFounder()'>Contact Person</button>
     </div>
   <!-- </form> -->
 </div>
