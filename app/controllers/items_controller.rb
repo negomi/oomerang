@@ -15,7 +15,8 @@ class ItemsController < ApplicationController
         date:i.location.date.strftime("%m/%d/%Y"),
         time:i.location.time.strftime("%I:%M%p"),
         place:i.location.details,
-        extra_info:i.details
+        extra_info:i.details,
+        secret:i.secret_info
         })
     end
     respond_to do |format|

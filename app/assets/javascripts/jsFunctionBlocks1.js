@@ -73,11 +73,12 @@ function loadMarkers() {
             });
           }
 
-          generalContent = item;
+          
           google.maps.event.addListener(Marker, 'click', function() {
             $('#dynamicDiv').empty();
             $('#dynamicDiv').append(contentString);
             $('#dynamicDivWrap').slideDown(100);
+            generalContent = item;
           });
           markers.push(Marker);
         }
@@ -260,7 +261,7 @@ function contactFounder(){
     $("#dynamicDiv").append(foundForm);
   }
   else
-    var foundForm = JST['templates/secretQuestion']({value: contactFounder});
+    var foundForm = JST['templates/secretQuestion']({value: generalContent});
     $('#dynamicDiv').empty();
     $("#dynamicDiv").append(foundForm);
 
