@@ -20,7 +20,7 @@
   src: local('Cherry Swash Bold'), local('CherrySwash-Bold'), url(http://themes.googleusercontent.com/static/fonts/cherryswash/v1/-CfyMyQqfucZPQNB0nvYyBAPw1J91axKNXP_-QX9CC8.woff) format('woff');
 }
 
-a, a:hover {
+h1, h2, h3, a, a:hover {
   color: #8000b7;
 }
 
@@ -104,13 +104,8 @@ html, body, #map-canvas {
   position: absolute;
   background-color: rgb(128, 0, 183);
   background-color: rgba(128, 0, 183, 0.5);
-  /*min-height: 100%;*/
   margin: 59px 0 0;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 5px;
-  width: 350px;
+  padding: 15px;
 }
 
 #searchTextField {
@@ -129,4 +124,8 @@ html, body, #map-canvas {
 
 textarea{
   resize: none;
+}
+
+.container {
+  margin-top: 50px;
 }
