@@ -73,6 +73,7 @@ function loadMarkers() {
             });
           }
 
+          generalContent = item;
           google.maps.event.addListener(Marker, 'click', function() {
             $('#dynamicDiv').empty();
             $('#dynamicDiv').append(contentString);
@@ -248,7 +249,6 @@ function isLoggedIn(){
       response = data[0];
     }
   });
-  console.log('hola');
   return response;
 }
 
@@ -260,7 +260,9 @@ function contactFounder(){
     $("#dynamicDiv").append(foundForm);
   }
   else
-    alert("hola");
+    var foundForm = JST['templates/secretQuestion']({value: contactFounder});
+    $('#dynamicDiv').empty();
+    $("#dynamicDiv").append(foundForm);
 
 }
 
@@ -272,9 +274,12 @@ function contactSeeker(){
     $("#dynamicDiv").append(foundForm);
   }
   else
-    alert("hola");
+    emailSent();
 }
 
 
-
-
+function emailSent(){
+  var foundForm = JST['templates/emailForm']();
+  $('#dynamicDiv').empty();
+  $("#dynamicDiv").append(foundForm);
+}

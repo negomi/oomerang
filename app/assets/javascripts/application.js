@@ -24,6 +24,7 @@ var generalMarker = '';
 var generalInfowindow;
 var generalLat;
 var generalLng;
+var generalContent;
 // var prevZIndex = -1;
 // var zIndexCount;
 
