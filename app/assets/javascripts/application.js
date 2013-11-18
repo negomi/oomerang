@@ -27,7 +27,7 @@ var generalLng;
 // var prevZIndex = -1;
 // var zIndexCount;
 
-//$(function() {
+$(function() {
 
   function initialize() {
     //////// Generating map
@@ -74,7 +74,9 @@ var generalLng;
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
-//});
+
+
+});
 
 
 

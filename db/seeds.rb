@@ -8,7 +8,7 @@
 
 
 # TEST USERS:
-seeker1 = User.create!([{name: 'Joe Bloggs', email: 'jbloggs@bloggs.com', username: 'jblogs', password: 'mrbloggs'}])
+seeker1 = User.create([{name: 'Joe Bloggs', email: 'jbloggs@bloggs.com', username: 'jblogs', password: 'mrbloggs'}])
 seeker2 = User.create([{name: 'Jack Daniels', email: 'smooth@whiskey.com', username: 'theman', password: 'thedrink'}])
 seeker3 = User.create([{name: 'Dos Equis', email: 'xx@idontoften.com', username: 'interesting', password: 'world'}])
 seeker4 = User.create([{name: 'Jimmy Hoffa', email: 'jhoffa@missing.com', username: 'findme', password: 'please'}])

@@ -8,14 +8,14 @@ class ItemsController < ApplicationController
         {id:i.id,
         status:i.status,
         lat:i.location.latitude,
-        lng:i.location.longtitude
-        #title:i.title????
+        lng:i.location.longtitude,
+        title:i.title,
         # cat1:Category.find_by_id(i.category.parent_id).name,
         # cat2:i.category.name,
-        # date:i.location.date.strftime("%m/%d/%Y"),
-        # time:i.location.time.strftime("%I:%M%p"),
-        # place:i.location.details,
-        # extra_info:i.details
+        date:i.location.date.strftime("%m/%d/%Y"),
+        time:i.location.time.strftime("%I:%M%p"),
+        place:i.location.details,
+        extra_info:i.details
         })
     end
     respond_to do |format|
@@ -23,24 +23,49 @@ class ItemsController < ApplicationController
     end
   end
 
-  def found
-    loc = Location.create(latitude:params[:latitude],longtitude:params[:longitude])
-    item = Item.new
-    item.status = params[:status]
-    item.location = loc
-    item.save
+  def lost
+    l = Location.new
+    l.latitude = params[:latitude]
+    l.longtitude = params[:longitude]
+    l.date = params[:date]
+    l.time = params[:time]
+    l.details = params[:place]
+
+    c = Category.find_by_name(params[:cat2])
+
+    i = Item.new
+    i.status = params[:status]
+    i.title = params[:title]
+    i.details = params[:desc]
+    i.location = l
+    i.category = c
+    i.seeker_id = current_user.id
+    i.save
 
     respond_to do |format|
-      format.json {render :json => ['success']}
+      format.json {render :json => i}
     end
   end
 
-  def lost
-    loc = Location.create(latitude:params[:latitude],longtitude:params[:longitude])
-    item = Item.new
-    item.status = params[:status]
-    item.location = loc
-    item.save
+  def found
+    l = Location.new
+    l.latitude = params[:latitude]
+    l.longtitude = params[:longitude]
+    l.date = params[:date]
+    l.time = params[:time]
+    l.details = params[:place]
+
+    c = Category.find_by_name(params[:cat2])
+
+    i = Item.new
+    i.status = params[:status]
+    i.title = params[:title]
+    i.details = params[:desc]
+    i.secret_info = params[:question]
+    i.location = l
+    i.category = c
+    i.seeker_id = current_user.id
+    i.save
 
     respond_to do |format|
       format.json {render :json => ['success']}

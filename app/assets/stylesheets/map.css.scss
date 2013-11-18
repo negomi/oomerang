@@ -119,3 +119,34 @@ html, body, #map-canvas {
 .itemP {
   text-align: left;
 }
+
+.formTitle {
+  text-align: left;
+  margin-top: 0px;
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+#separator {
+  height: 1px;
+  background-color: grey;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.missingField{
+  width: 100%;
+  color: red;
+  margin-bottom: 5px;
+}
+
+.buttonLogged {
+  background-color: #8000b7;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  width: 30%;
+  font-size: 15px;
+}
