@@ -7,6 +7,7 @@ Oomerang::Application.routes.draw do
   post "/items/lost" => "items#lost"
   get "/users/logged" => "users#isLogged"
   get "/mailertest" => "users#mailertest"
+  get "/welcome" => "users#show"
 
   resources :users, :items, :locations
 
