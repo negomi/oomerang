@@ -119,6 +119,7 @@ $(function() {
     }
   });
 
+
   $("body").on("change","#foundCat1Field",function() {
     if($(this).val()== 1){
      $("#foundCat2Field").html("<option value='7'>Gloves</option>" +

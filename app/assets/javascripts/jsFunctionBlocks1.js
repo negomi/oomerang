@@ -18,11 +18,9 @@ function handleNoGeolocation(errorFlag) {
 
 ///////// Displays the markers on the map
 function loadMarkers() {
-
   $.ajax( "/items", {
     type: "get",
     success: function(data){
-
       //Erase markers from the map to display new ones
       for(var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
@@ -148,7 +146,10 @@ function addNewItem(event){
 ///////// Fill in information for lost item
 function enterLostItem(event){
   generalInfowindow.close();
-  var lostForm = JST['templates/newLostItem']();
+  if(isLoggedIn())
+    var lostForm = JST['templates/newLostItem']();
+  else
+    var lostForm = JST['templates/pleaseLogIn']();
   $('#dynamicDiv').empty();
   $("#dynamicDiv").append(lostForm);
   $('#dynamicDivWrap').slideDown(100);
@@ -157,7 +158,10 @@ function enterLostItem(event){
 ///////// Fill in information for lost item
 function enterFoundItem(event){
   generalInfowindow.close();
-  var foundForm = JST['templates/newFoundItem']();
+  if(isLoggedIn())
+    var foundForm = JST['templates/newFoundItem']();
+  else
+    var foundForm = JST['templates/pleaseLogIn']();
   $('#dynamicDiv').empty();
   $("#dynamicDiv").append(foundForm);
   $('#dynamicDivWrap').slideDown(100);
@@ -180,20 +184,25 @@ function newLostItem() {
   time = document.getElementById('lostTimeField').value;
   place = document.getElementById('lostPlaceField').value;
 
-  dataToStore = {title:title,cat1:cat1,cat2:cat2,
-    desc:desc,date:date,time:time,place:place,
-    latitude:generalLat,longitude:generalLng,
-    status:'lost'};
+  if(title==""||cat2=="-----"||desc==""||date==""||time==""||place=="")
+    $('#missingLostMessage').append("Please complete all the fields before proceeding.");
+  else{
+    dataToStore = {title:title,cat1:cat1,cat2:cat2,
+      desc:desc,date:date,time:time,place:place,
+      latitude:generalLat,longitude:generalLng,
+      status:'lost'};
 
-  $.ajax( "/items/lost", {
-    type: "post",
-    data: dataToStore,
-    success: function(data){
-    }
-  });
-  closeDynamicDiv();
-  generalMarker.setMap(null);
-  loadMarkers();
+    $.ajax( "/items/lost", {
+      type: "post",
+      data: dataToStore,
+      success: function(data){
+        console.log(data);
+      }
+    });
+    closeDynamicDiv();
+    generalMarker.setMap(null);
+    loadMarkers();
+  } 
 }
 
 ///////// Create new Found Item in database
@@ -209,18 +218,38 @@ function newFoundItem() {
   place = document.getElementById('foundPlaceField').value;
   question = document.getElementById('foundQuestionField').value;
 
-  dataToStore = {title:title,cat1:cat1,cat2:cat2,
-    desc:desc,date:date,time:time,place:place,
-    question:question,latitude:generalLat,longitude:generalLng,
-    status:'found'};
+  if(title==""||cat2=="-----"||desc==""||date==""||time==""||place=="")
+    $('#missingFoundMessage').append("Please complete all the fields before proceeding.");
+  else{
+    dataToStore = {title:title,cat1:cat1,cat2:cat2,
+      desc:desc,date:date,time:time,place:place,
+      question:question,latitude:generalLat,longitude:generalLng,
+      status:'found'};
 
-  $.ajax( "/items/found", {
-    type: "post",
-    data: dataToStore,
+    $.ajax( "/items/found", {
+      type: "post",
+      data: dataToStore,
+      success: function(data){
+      }
+    });
+    closeDynamicDiv();
+    generalMarker.setMap(null);
+    loadMarkers();
+  }
+}
+
+///////// Check if user is logged in
+function isLoggedIn(){
+  var response; 
+  $.ajax( "/users/logged", {
+    type: "get",
+    async: false,
     success: function(data){
+      response = data[0];
     }
   });
-  closeDynamicDiv();
-  generalMarker.setMap(null);
-  loadMarkers();
+  return response;
 }
+
+
+

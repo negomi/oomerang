@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
-
   include UsersHelper
+
+  def isLogged
+    resp = user_signed_in?;
+    respond_to do |format|
+      format.json {render :json => [resp]}
+    end
+  end
 
   def new
   end
