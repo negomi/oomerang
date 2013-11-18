@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   def show
   end
 
+
   def mailertest
 
     #@user = User.new(params[:user])
