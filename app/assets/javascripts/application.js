@@ -83,7 +83,6 @@ $(function() {
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
-<<<<<<< HEAD
   $("body").on("change","#lostCat1Field",function() {
     if($(this).val()== 1){
      $("#lostCat2Field").html("<option value='7'>Gloves</option>" +
@@ -176,6 +175,4 @@ $(function() {
 
   });
 
-=======
->>>>>>> sjgjohnston-master
 });
