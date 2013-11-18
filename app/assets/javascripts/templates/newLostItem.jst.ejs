@@ -1,8 +1,7 @@
-<div id='lostFormWrap'>
-  <!-- <form method="get" action="/users/sign_in"> -->
+<!-- <div id='lostFormWrap'>
     <div class="lostLabel">I LOST...</div>
     <label class='sectionName'>ITEM INFORMATION</label>
-    <input id='lostTitleField' class='inputClass' type="text" placeholder="Title">
+    <input id='lostTitleField' class='form-control' type="text" placeholder="Title">
     <select id='lostCat1Field' class='selectClass'>
       <option selected value="base">Please select a category</option>
       <option value="1">Clothing</option>
@@ -14,15 +13,39 @@
     </select>
     <select id='lostCat2Field' class='selectClass'>
       <option value="1">-----</option>
-      <option value="2">Test</option>
     </select>
-    <input id='lostItemDescField' class='inputClass' type="text" placeholder="Item Description">
+    <input id='lostItemDescField' class='form-control' type="text" placeholder="Item Description">
     <label class='sectionName'>LOCATION INFORMATION</label>
-    <input id='lostDateField' class='inputClass' type="date" placeholder="Date Lost">
-    <input id='lostTimeField' class='inputClass'type="time" placeholder="Time Lost">
-    <input id='lostPlaceField'class='inputClass' type="text" placeholder="Additional information on the place">
+    <input id='lostDateField' class='form-control' type="date" placeholder="Date Lost">
+    <input id='lostTimeField' class='form-control'type="time" placeholder="Time Lost">
+    <input id='lostPlaceField'class='form-control' type="text" placeholder="Additional information on the place">
     <div id='missingLostMessage' class='missingField'></div>
     <input class='buttonClass' type="submit" value="Submit Item" onclick='newLostItem()'>
+</div> -->
 
-  <!-- </form> -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>What did you lose?</h3>
+  </div>
+  <div class="panel-body">
+    <input id='lostTitleField' class='form-control' type="text" placeholder="Give it a title">
+    <select id='lostCat1Field' class='form-control'>
+      <option selected value="base">Select a category</option>
+      <option value="1">Clothing</option>
+      <option value="2">Electronics</option>
+      <option value="3">Pets</option>
+      <option value="4">Toys</option>
+      <option value="5">Valuables</option>
+      <option value="6">Other</option>
+    </select>
+    <select id='lostCat2Field' class='form-control'>
+      <option value="1">-----</option>
+    </select>
+    <input id='lostItemDescField' class='form-control' type="text" placeholder="Describe it in more detail...">
+    <input id='lostDateField' class='form-control' type="date">
+    <input id='lostTimeField' class='form-control'type="time">
+    <input id='lostPlaceField' class='form-control' type="text" placeholder="Where exactly did you leave it?">
+    <div id='missingLostMessage' class='missingField'></div>
+    <input class='btn btn-default' type="submit" value="Oomerang it!" onclick='newLostItem()'>
+  </div>
 </div>

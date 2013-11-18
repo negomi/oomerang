@@ -9,7 +9,7 @@ function autoComp() {
     animation: google.maps.Animation.DROP,
     draggable: true,
   });
-  generalMarker.setVisible(false);  
+  generalMarker.setVisible(false);
 
   input.className = '';
   var place = autocomplete.getPlace();
@@ -44,7 +44,3 @@ function autoComp() {
       generalInfowindow.close();
   });
 }
-
-
-
-

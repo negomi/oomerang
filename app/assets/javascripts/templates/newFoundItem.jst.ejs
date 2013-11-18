@@ -1,8 +1,7 @@
-<div id='lostFormWrap'>
-  <!-- <form method="get" action="/users/sign_in"> -->
+<!-- <div id='lostFormWrap'>
     <div class="lostLabel">I FOUND...</div>
     <label class='sectionName'>ITEM INFORMATION</label>
-    <input id='foundTitleField' class='inputClass' type="text" placeholder="Title">
+    <input id='foundTitleField' class='form-control' type="text" placeholder="Title">
     <select id='foundCat1Field' class='selectClass'>
       <option selected value="base">Please select a category</option>
       <option value="1">Clothing</option>
@@ -16,14 +15,45 @@
       <option value="1">-----</option>
       <option value="2">Test</option>
     </select>
-    <input id='foundItemDescField' class='inputClass' type="text" placeholder="Item Description">
+    <input id='foundItemDescField' class='form-control' type="text" placeholder="Item Description">
     <label class='sectionName'>LOCATION INFORMATION</label>
-    <input id='foundDateField' class='inputClass' type="date" placeholder="Date Lost">
-    <input id='foundTimeField' class='inputClass'type="time" placeholder="Time Lost">
-    <input id='foundPlaceField' class='inputClass' type="text" placeholder="Additional information on the place">
+    <input id='foundDateField' class='form-control' type="date" placeholder="Date Lost">
+    <input id='foundTimeField' class='form-control'type="time" placeholder="Time Lost">
+    <input id='foundPlaceField' class='form-control' type="text" placeholder="Additional information on the place">
     <label class='sectionName'>SECRET QUESTION</label>
-    <input id='foundQuestionField' class='inputClass' type="text" placeholder="Secret question">
+    <input id='foundQuestionField' class='form-control' type="text" placeholder="Secret question">
     <div id='missingFoundMessage' class='missingField'></div>
     <input class='buttonClass' type="submit" value="Submit Item" onclick='newFoundItem()'>
-  <!-- </form> -->
+</div> -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>What did you find?</h3>
+  </div>
+  <div class="panel-body">
+    <input id='foundTitleField' class='form-control' type="text" placeholder="Give it a title">
+
+    <select id='foundCat1Field' class='form-control'>
+      <option selected value="base">Select a category</option>
+      <option value="1">Clothing</option>
+      <option value="2">Electronics</option>
+      <option value="3">Pets</option>
+      <option value="4">Toys</option>
+      <option value="5">Valuables</option>
+      <option value="6">Other</option>
+    </select>
+
+    <select id='foundCat2Field' class='form-control'>
+      <option value="1">-----</option>
+    </select>
+
+    <input id='foundItemDescField' class='form-control' type="text" placeholder="Describe it in more detail">
+    <input id='foundDateField' class='form-control' type="date" placeholder="What day?">
+    <input id='foundTimeField' class='form-control'type="time" placeholder="What time?">
+    <input id='foundPlaceField' class='form-control' type="text" placeholder="Where exactly did you find it?">
+    <label>Pick a secret question (something only the owner would know so you can verify it's theirs)</label>
+    <input id='foundQuestionField' class='form-control' type="text" placeholder="e.g. What cards are in the wallet?">
+    <div id='missingFoundMessage' class='missingField'></div>
+    <input class='btn btn-default' type="submit" value="Oomerang it!" onclick='newFoundItem()'>
+  </div>
 </div>

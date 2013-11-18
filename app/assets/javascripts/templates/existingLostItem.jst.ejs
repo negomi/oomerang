@@ -1,17 +1,13 @@
-<div id='lostFormWrap'>
-  <!-- <form method="get" action="/users/sign_in"> -->
-    <div class="lostLabel">LOST ITEM</div>
-    <div class='whiteBackground'>
-        <h3 class="formTitle"><%= value.title%></h3>
-        <div id='separator'></div>
-        <p class='itemP'><span class='boldText'>Category 1:&nbsp;&nbsp;</span><%= value.cat1%></p>
-        <p class='itemP'><span class='boldText'>Category 2:&nbsp;&nbsp;</span><%= value.cat2%></p>
-        <p class='itemP'><span class='boldText'>Item Description:&nbsp;&nbsp;</span><%= value.extra_info%></p>
-        <p class='itemP'><span class='boldText'>Date Lost:&nbsp;&nbsp;</span><%= value.date %></p>
-        <p class='itemP'><span class='boldText'>Time Lost:&nbsp;&nbsp;</span><%= value.time %></p>
-        <p class='itemP'><span class='boldText'>Place Description:&nbsp;&nbsp;</span><%= value.place%></p>
-
-        <button align='middle' class='buttonClass' onclick='contactSeeker()'>Contact Person</button>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3><%= value.title%> lost!</h3>
     </div>
-  <!-- </form> -->
+    <div class="panel-body">
+        <p><%= value.title%> lost on <%= value.date%> at around <%= value.time%>.</p>
+        <h4>What's it like?</h4>
+        <p><%= value.extra_info%></p>
+        <h4>Where exactly was it left?</h4>
+        <p><%= value.place%></p>
+        <button align='middle' class='btn btn-default' onclick='contactFounder()'>I have it!</button>
+    </div>
 </div>
