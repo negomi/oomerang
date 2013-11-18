@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 
-
+var welcome = true;
 var map;
 var markers = [];
 var markerflag = true;
@@ -28,6 +28,15 @@ var generalLng;
 // var zIndexCount;
 
 $(function() {
+  ///////// Welcome pop-up
+  // Checks to see if it is the first visit on browser open
+//   if(localStorage.firstVisit === true) {
+//       // Stores visit
+//       $('#welcomeModal').modal('show');
+//   } else {
+//       $('#welcomeModal').hide();
+//   }
+// });
 
   function initialize() {
     //////// Generating map
