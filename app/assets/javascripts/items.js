@@ -175,19 +175,19 @@ function loadMarkers() {
         var Marker;
         var contentString;
         if(item["lat"]>=0){
-          var latTopBound = bounds["fa"];
-          var latBotBound = bounds["fa"];
+          var latTopBound = bounds["fa"]["b"];
+          var latBotBound = bounds["fa"]["d"];
         } else {
-          var latTopBound = bounds["fa"];
-          var latBotBound = bounds["fa"];
+          var latTopBound = bounds["fa"]["d"];
+          var latBotBound = bounds["fa"]["b"];
         }
 
         if(item["lng"]>=0){
-          var lngLeftBound = bounds["ga"];
-          var lngRightBound = bounds["ga"];
+          var lngLeftBound = bounds["ga"]["b"];
+          var lngRightBound = bounds["ga"]["d"];
         } else {
-          var lngLeftBound = bounds["ga"];
-          var lngRightBound = bounds["ga"];
+          var lngLeftBound = bounds["ga"]["d"];
+          var lngRightBound = bounds["ga"]["b"];
         }
 
         //Check if markers fall inside the window bounds
