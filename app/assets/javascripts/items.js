@@ -1,20 +1,6 @@
-////////// If the browser doesn't support Geolocation, it renders the San Francisco Map
-function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
-
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(37.7749300, -122.4194200),
-    content: content
-  };
-
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
-}
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+// You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 ///////// Displays the markers on the map
 function loadMarkers() {
@@ -33,25 +19,25 @@ function loadMarkers() {
         var Marker;
         var contentString;
         if(item["lat"]>=0){
-          var latTopBound = bounds["fa"]["b"];
-          var latBotBound = bounds["fa"]["d"];
+          var latTopBound = bounds["fa"];
+          var latBotBound = bounds["fa"];
         } else {
-          var latTopBound = bounds["fa"]["d"];
-          var latBotBound = bounds["fa"]["b"];
+          var latTopBound = bounds["fa"];
+          var latBotBound = bounds["fa"];
         }
 
         if(item["lng"]>=0){
-          var lngLeftBound = bounds["ga"]["b"];
-          var lngRightBound = bounds["ga"]["d"];
+          var lngLeftBound = bounds["ga"];
+          var lngRightBound = bounds["ga"];
         } else {
-          var lngLeftBound = bounds["ga"]["d"];
-          var lngRightBound = bounds["ga"]["b"];
+          var lngLeftBound = bounds["ga"];
+          var lngRightBound = bounds["ga"];
         }
 
         //Check if markers fall inside the window bounds
         if((item["lat"]<latTopBound && item["lat"]>latBotBound) && (item["lng"]<lngLeftBound && item["lng"]>lngRightBound)){
           if(item["status"] == "lost"){
-            var image = "/assets/MarkerPurple.png";
+            image = "/assets/MarkerPurple.png";
             contentString = JST['templates/existingLostItem']({value: item});
           } else{
             var image = "/assets/MarkerWhite.png";
@@ -73,7 +59,7 @@ function loadMarkers() {
             });
           }
 
-          
+
           google.maps.event.addListener(Marker, 'click', function() {
             $('#dynamicDiv').empty();
             $('#dynamicDiv').append(contentString);
@@ -238,49 +224,4 @@ function newFoundItem() {
     generalMarker.setMap(null);
     loadMarkers();
   }
-}
-
-///////// Check if user is logged in
-function isLoggedIn(){
-  var response;
-  $.ajax( "/users/logged", {
-    type: "get",
-    async: false,
-    success: function(data){
-      response = data[0];
-    }
-  });
-  return response;
-}
-
-///////// Contact Founder
-function contactFounder(){
-  if(isLoggedIn()==false){
-    var foundForm = JST['templates/pleaseLogIn']();
-    $('#dynamicDiv').empty();
-    $("#dynamicDiv").append(foundForm);
-  }
-  else
-    var foundForm = JST['templates/secretQuestion']({value: generalContent});
-    $('#dynamicDiv').empty();
-    $("#dynamicDiv").append(foundForm);
-
-}
-
-///////// Contact Seeker
-function contactSeeker(){
-  if(isLoggedIn()==false){
-    var foundForm = JST['templates/pleaseLogIn']();
-    $('#dynamicDiv').empty();
-    $("#dynamicDiv").append(foundForm);
-  }
-  else
-    emailSent();
-}
-
-
-function emailSent(){
-  var foundForm = JST['templates/emailForm']();
-  $('#dynamicDiv').empty();
-  $("#dynamicDiv").append(foundForm);
 }
