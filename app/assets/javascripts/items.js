@@ -56,102 +56,97 @@ $(function() {
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
-  $("body").on("change", "#lostCat1Field", function() {
-    var $category = $(this).val();
+// FIXME tidy this up
+$("body").on("change","#lostCat1Field",function() {
+    if($(this).val()== 1){
+     $("#lostCat2Field").html("<option value='7'>Gloves</option>" +
+                   "<option value='8'>Hat</option>" +
+                   "<option value='9'>Jacket</option>" +
+                   "<option value='10'>Scarf</option>" +
+                   "<option value='11'>Sweater</option>" +
+                   "<option value='12'>Other</option>");
+    }
+    else if($(this).val()== 2){
+     $("#lostCat2Field").html("<option value='13'>Camera</option>" +
+                   "<option value='14'>Kindle</option>" +
+                   "<option value='15'>Laptop</option>" +
+                   "<option value='16'>Mp3 player</option>" +
+                   "<option value='17'>Phone</option>" +
+                   "<option value='18'>Tablet</option>" +
+                   "<option value='19'>Other</option>");
+    }
+    else if($(this).val()== 3){
+     $("#lostCat2Field").html("<option value='20'>Dog</option>" +
+                   "<option value='21'>Cat</option>" +
+                   "<option value='22'>Other</option>");
+    }
 
-    switch ($category) {
-      case 1:
-        $("#lostCat2Field").html(
-          "<option value='7'>Gloves</option>" +
-          "<option value='8'>Hat</option>" +
-          "<option value='9'>Jacket</option>" +
-          "<option value='10'>Scarf</option>" +
-          "<option value='11'>Sweater</option>" +
-          "<option value='12'>Other</option>");
-        break;
-      case 2:
-        $("#lostCat2Field").html(
-          "<option value='13'>Camera</option>" +
-          "<option value='14'>Kindle</option>" +
-          "<option value='15'>Laptop</option>" +
-          "<option value='16'>Mp3 player</option>" +
-          "<option value='17'>Phone</option>" +
-          "<option value='18'>Tablet</option>" +
-          "<option value='19'>Other</option>");
-        break;
-      case 3:
-        $("#lostCat2Field").html(
-          "<option value='20'>Dog</option>" +
-          "<option value='21'>Cat</option>" +
-          "<option value='22'>Other</option>");
-        break;
-      case 4:
-        $("#lostCat2Field").html("");
-        break;
-      case 5:
-        $("#lostCat2Field").html(
-          "<option value='23'>Bag</option>" +
-          "<option value='24'>Book</option>" +
-          "<option value='25'>ID Card</option>" +
-          "<option value='26'>Jewelry</option>" +
-          "<option value='27'>Keys</option>" +
-          "<option value='28'>Purse</option>" +
-          "<option value='29'>Wallet</option>" +
-          "<option value='30'>Watch</option>" +
-          "<option value='31'>Other</option>");
-        break;
-      case 6:
-        $("#lostCat2Field").html("");
+    else if($(this).val()== 4){
+     $("#lostCat2Field").html("");
+    }
+
+    else if($(this).val()== 5){
+     $("#lostCat2Field").html("<option value='23'>Bag</option>" +
+                   "<option value='24'>Book</option>" +
+                   "<option value='25'>ID Card</option>" +
+                   "<option value='26'>Jewelry</option>" +
+                   "<option value='27'>Keys</option>" +
+                   "<option value='28'>Purse</option>" +
+                   "<option value='29'>Wallet</option>" +
+                   "<option value='30'>Watch</option>" +
+                   "<option value='31'>Other</option>");
+    }
+
+    else if($(this).val()== 6){
+     $("#lostCat2Field").html("");
     }
   });
 
-  $("body").on("change", "#foundCat1Field", function() {
-    var $category = $(this).val();
 
-    switch ($category) {
-      case 1:
-        $("#foundCat2Field").html(
-          "<option value='7'>Gloves</option>" +
-          "<option value='8'>Hat</option>" +
-          "<option value='9'>Jacket</option>" +
-          "<option value='10'>Scarf</option>" +
-          "<option value='11'>Sweater</option>" +
-          "<option value='12'>Other</option>");
-        break;
-      case 2:
-        $("#foundCat2Field").html(
-          "<option value='13'>Camera</option>" +
-          "<option value='14'>Kindle</option>" +
-          "<option value='15'>Laptop</option>" +
-          "<option value='16'>Mp3 player</option>" +
-          "<option value='17'>Phone</option>" +
-          "<option value='18'>Tablet</option>" +
-          "<option value='19'>Other</option>");
-        break;
-      case 3:
-        $("#foundCat2Field").html(
-          "<option value='20'>Dog</option>" +
-          "<option value='21'>Cat</option>" +
-          "<option value='22'>Other</option>");
-        break;
-      case 4:
-        $("#foundCat2Field").html("");
-        break;
-      case 5:
-      $("#foundCat2Field").html(
-          "<option value='23'>Bag</option>" +
-          "<option value='24'>Book</option>" +
-          "<option value='25'>ID Card</option>" +
-          "<option value='26'>Jewelry</option>" +
-          "<option value='27'>Keys</option>" +
-          "<option value='28'>Purse</option>" +
-          "<option value='29'>Wallet</option>" +
-          "<option value='30'>Watch</option>" +
-          "<option value='31'>Other</option>");
-        break;
-      case 6:
-        $("#foundCat2Field").html("");
+  $("body").on("change","#foundCat1Field",function() {
+    if($(this).val()== 1){
+     $("#foundCat2Field").html("<option value='7'>Gloves</option>" +
+                   "<option value='8'>Hat</option>" +
+                   "<option value='9'>Jacket</option>" +
+                   "<option value='10'>Scarf</option>" +
+                   "<option value='11'>Sweater</option>" +
+                   "<option value='12'>Other</option>");
     }
+    else if($(this).val()== 2){
+     $("#foundCat2Field").html("<option value='13'>Camera</option>" +
+                   "<option value='14'>Kindle</option>" +
+                   "<option value='15'>Laptop</option>" +
+                   "<option value='16'>Mp3 player</option>" +
+                   "<option value='17'>Phone</option>" +
+                   "<option value='18'>Tablet</option>" +
+                   "<option value='19'>Other</option>");
+    }
+    else if($(this).val()== 3){
+     $("#foundCat2Field").html("<option value='20'>Dog</option>" +
+                   "<option value='21'>Cat</option>" +
+                   "<option value='22'>Other</option>");
+    }
+
+    else if($(this).val()== 4){
+     $("#foundCat2Field").html("");
+    }
+
+    else if($(this).val()== 5){
+     $("#foundCat2Field").html("<option value='23'>Bag</option>" +
+                   "<option value='24'>Book</option>" +
+                   "<option value='25'>ID Card</option>" +
+                   "<option value='26'>Jewelry</option>" +
+                   "<option value='27'>Keys</option>" +
+                   "<option value='28'>Purse</option>" +
+                   "<option value='29'>Wallet</option>" +
+                   "<option value='30'>Watch</option>" +
+                   "<option value='31'>Other</option>");
+    }
+
+    else if($(this).val()== 6){
+     $("#foundCat2Field").html("");
+    }
+
   });
 });
 
@@ -263,7 +258,7 @@ function addNewItem(event) {
   $('#dynamicDivWrap').slideUp(100);
   $('#dynamicDiv').empty();
 
-  if (generalMarker!=="") {
+  if (generalMarker !== "") {
     generalMarker.setMap(null);
   }
 
