@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
     i.title = params[:title]
     i.details = params[:desc]
     i.location = l
-    i.category = category
+    i.category = c
     i.seeker_id = current_user.id
     i.save
 

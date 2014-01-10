@@ -1,13 +1,11 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-
-// If the browser doesn't support geolocation, it renders the San Francisco map
+// If the browser doesn't support geolocation, render the San Francisco map
 function handleNoGeolocation(errorFlag) {
+  var content;
+
   if (errorFlag) {
-    var content = 'Error: The geolocation service failed.';
+    content = 'Error: The geolocation service failed.';
   } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
+    content = 'Error: Your browser doesn\'t support geolocation.';
   }
 
   var options = {
@@ -20,17 +18,21 @@ function handleNoGeolocation(errorFlag) {
   map.setCenter(options.position);
 }
 
-// Add autocomplete to Places Bar
+// Add autocomplete to Places bar
 function autoComp() {
-  if(generalMarker!="")
+  if (generalMarker !== '') {
     generalMarker.setMap(null);
+  }
+
   $('#dynamicDivWrap').hide();
+
   generalMarker = new google.maps.Marker({
     map: map,
     icon: "/assets/MarkerGrey.png",
     animation: google.maps.Animation.DROP,
     draggable: true,
   });
+
   generalMarker.setVisible(false);
 
   input.className = '';
@@ -48,23 +50,22 @@ function autoComp() {
     map.setCenter(place.geometry.location);
     map.setZoom(17);
   }
+
   generalMarker.setPosition(place.geometry.location);
   generalMarker.setVisible(true);
 
   var contentString = JST['templates/selectItem']();
 
-  generalInfowindow = new google.maps.InfoWindow({
+  generalInfoWindow = new google.maps.InfoWindow({
       content: contentString,
       maxWidth: 500
   });
 
   google.maps.event.addListener(generalMarker, 'click', function() {
-    if (generalInfowindow.getMap() == null)
-      generalInfowindow.open(map,this);
-    else
-      generalInfowindow.close();
+    if (generalInfoWindow.getMap() === null) {
+      generalInfoWindow.open(map,this);
+    } else {
+      generalInfoWindow.close();
+    }
   });
-
-  // FIXME not clearing it
-  $('#searchTextField').val("");
 }
