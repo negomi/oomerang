@@ -20,6 +20,9 @@ function handleNoGeolocation(errorFlag) {
 
 // Add autocomplete to Places bar
 function autoComp() {
+  // FIXME Reset search field doesn't work
+  // $('#searchTextField').val('');
+
   if (generalMarker !== '') {
     generalMarker.setMap(null);
   }
