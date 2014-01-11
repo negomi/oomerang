@@ -65,8 +65,8 @@ function autoComp() {
   });
 
   google.maps.event.addListener(generalMarker, 'click', function() {
-    if (generalInfoWindow.getMap() === null) {
-      generalInfoWindow.open(map,this);
+    if (generalInfoWindow.getMap() == null) {
+      generalInfoWindow.open(map, this);
     } else {
       generalInfoWindow.close();
     }
