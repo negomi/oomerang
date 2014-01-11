@@ -43,7 +43,7 @@ h1, h2, h3, h4, a, a:hover {
 
   .navbar-inverse .navbar-brand {
     color: #fff;
-    font-family: 'Cherry Swash', cursive;
+    font-family: 'Cherry Swash', sans-serif;
     font-size: 2em;
   }
 
@@ -55,6 +55,10 @@ h1, h2, h3, h4, a, a:hover {
     display: inline;
     font-size: 1.4em;
     line-height: 3em;
+  }
+
+  .navbar-inverse .navbar-nav>li>a:focus {
+    color: #999;
   }
 
   .navbar-text {
@@ -164,14 +168,4 @@ border-color: #8000b7;
 outline: 0;
 -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(128, 0, 183,0.6);
 box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(128, 0, 183,0.6);
-}
-
-.jumbotron {
-  background-image: url('productshot.png');
-  background-repeat: no-repeat;
-  height: 600px;
-}
-
-.welcome-btn, .lead {
-  margin-top: 20px;
 }
