@@ -131,11 +131,12 @@ html, body, #map-canvas {
 
 #searchTextField {
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   box-shadow: none;
   font-size: 15px;
   height: 35px;
   margin-bottom: 0;
+  padding-left: 10px;
   width: 100%;
 }
 
@@ -148,14 +149,15 @@ textarea {
 }
 
 .glyphicon-remove {
-  color: rgb(128, 0, 183);
+  color: #ccc;
   float: right;
   font-size: 1.5em;
   margin: 10px 10px 0;
 }
 
 .glyphicon-remove:hover {
-  color: #333;
+  color: #bbb;
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -163,7 +165,7 @@ input, select {
   margin-bottom: 10px;
 }
 
-.form-control:focus, #searchTextField:focus {
+.form-control:focus, #searchTextField:focus, input:focus {
 border-color: #8000b7;
 outline: 0;
 -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(128, 0, 183,0.6);
