@@ -1,2 +1,45 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class="container">
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>My items</h2>
+            </div>
+            <div class="col-xs-12">
+                <table class="table table-condensed">
+                    <tr>
+                        <th>Item</th>
+                        <th>Details</th>
+                        <th>Type</th>
+                    </tr>
+                    <% @lost_items.each do |item| %>
+                    <tr>
+                        <td><%= item.title %></td>
+                        <td><%= item.details %></td>
+                        <td><%= item.status %></td>
+                        <td><%= link_to "Delete", item, class: "welcome-btn btn btn-sm btn-lost", method: :delete %></td>
+                    </tr>
+                    <% end %>
+                </table>
+            </div>
+            <!--<div class="col-md-6">
+                <h3>Found</h3>
+                <table class="table table-condensed">
+                <tr>
+                <th>Item</th>
+                <th>Details</th>
+                <th>Status</th>
+                </tr>
+                <%# @found_items.each do |item| %>
+                <tr>
+                <td><%# item.title %></td>
+                <td><%# item.details %></td>
+                <td><%# item.status %></td>
+                <td><%# link_to "Delete", item, class: "welcome-btn btn btn-sm btn-lost", method: :delete %></td>
+                </tr>
+                <%# end %>
+                </table>
+            </div> -->
+        </div>
+    </div>
+</div> <!-- /container -->

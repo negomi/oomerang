@@ -73,6 +73,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show_all
+    @lost_items = current_user.lost_items
+    @found_items = current_user.found_items
+    render :index
+  end
+
   def show
   end
 
@@ -80,7 +86,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-
   end
 
   def update
@@ -90,6 +95,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id].to_i)
+    item.destroy
+    redirect_to :back
   end
 
 end

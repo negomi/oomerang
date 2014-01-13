@@ -8,7 +8,12 @@ Oomerang::Application.routes.draw do
   get "/users/logged" => "users#isLogged"
   get "/mailertest" => "users#mailertest"
   get "/welcome" => "users#show"
+  get "/users/:user_id/items" => "items#show_all"
 
   resources :users, :items, :locations
+
+  resources :users do
+    resources :items
+  end
 
 end
