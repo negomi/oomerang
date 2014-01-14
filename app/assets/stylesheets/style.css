@@ -178,4 +178,5 @@ table {
 
 .product-shot {
   margin-bottom: -20px;
+  max-width: 100%;
 }
