@@ -1,9 +1,8 @@
 class Category < ActiveRecord::Base
   attr_accessible :name, :parent_id
 
-  #belongs_to :items	
-  #has_many :items
-  has_one :item
+  #belongs_to :items
+  has_many :items
 
   belongs_to :parent, class_name: 'Category'
 
