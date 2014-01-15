@@ -10,8 +10,8 @@ class ItemsController < ApplicationController
         lat:i.location.latitude,
         lng:i.location.longtitude,
         title:i.title,
-        cat1:Category.find_by_id(i.category.parent_id).name,
-        cat2:i.category.name,
+        # cat1:Category.find_by_id(i.category.parent_id).name,
+        # cat2:i.category.name,
         date:i.location.date.strftime("%m/%d/%Y"),
         time:i.location.time.strftime("%I:%M%p"),
         place:i.location.details,
@@ -32,14 +32,14 @@ class ItemsController < ApplicationController
     l.time = params[:time]
     l.details = params[:place]
 
-    c = Category.find_by_name(params[:cat2])
+    # c = Category.find_by_name(params[:cat2])
 
     i = Item.new
     i.status = params[:status]
     i.title = params[:title]
     i.details = params[:desc]
     i.location = l
-    i.category = c
+    # i.category = c
     i.seeker_id = current_user.id
     i.save
 
@@ -56,7 +56,7 @@ class ItemsController < ApplicationController
     l.time = params[:time]
     l.details = params[:place]
 
-    c = Category.find_by_name(params[:cat2])
+    # c = Category.find_by_name(params[:cat2])
 
     i = Item.new
     i.status = params[:status]
