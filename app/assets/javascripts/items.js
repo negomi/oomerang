@@ -169,19 +169,19 @@ function loadMarkers() {
         var lngRightBound;
 
         if (item["lat"]>=0) {
-          latTopBound = bounds["fa"]["b"];
-          latBotBound = bounds["fa"]["d"];
+          latTopBound = bounds.ta.b;
+          latBotBound = bounds.ta.d;
         } else {
-          latTopBound = bounds["fa"]["d"];
-          latBotBound = bounds["fa"]["b"];
+          latTopBound = bounds.ta.d;
+          latBotBound = bounds.ta.b;
         }
 
         if (item["lng"]>=0) {
-          lngLeftBound = bounds["la"]["b"];
-          lngRightBound = bounds["la"]["d"];
+          lngLeftBound = bounds.ia.b;
+          lngRightBound = bounds.ia.d;
         } else {
-          lngLeftBound = bounds["la"]["d"];
-          lngRightBound = bounds["la"]["b"];
+          lngLeftBound = bounds.ia.d;
+          lngRightBound = bounds.ia.b;
         }
 
         var image;
