@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
     i.details = params[:desc]
     i.secret_info = params[:question]
     i.location = l
-    i.category = c
+    # i.category = c
     i.seeker_id = current_user.id
     i.save
 
@@ -79,25 +79,22 @@ class ItemsController < ApplicationController
     render :index
   end
 
-  def show
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def update
-  end
-
-  def edit
-  end
-
   def destroy
     item = Item.find(params[:id].to_i)
     item.destroy
     redirect_to :back
   end
+
+  def contact_seeker
+    id = params[:item]["id"]
+    u = User.find_by_id(Item.find_by_id(id).seeker_id)
+    # UserMailer.welcome_user_email(params[:item],current_user,u).deliver
+    render json: [params,current_user,u]
+  end
+
+  def contact_founder
+
+  end
+
 
 end

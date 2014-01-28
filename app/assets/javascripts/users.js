@@ -32,7 +32,18 @@ function contactSeeker() {
     $('#dynamicDiv').empty();
     $("#dynamicDiv").append(foundForm);
   } else {
-    emailSent();
+    $.ajax({
+      url: "/items/contact_seeker",
+      type: "post",
+      data: {item: generalContent}
+      }).done(function(data){
+        // console.log(data[0]["item"]["id"]);
+        // console.log("Finder: " + data[1]["email"]);
+        // console.log("Seeker: " + data[2]["email"]);
+
+        emailSent();
+      });
+
   }
 }
 

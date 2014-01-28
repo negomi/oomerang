@@ -5,6 +5,8 @@ Oomerang::Application.routes.draw do
   root to: "users#index"
   post "/items/found" => "items#found"
   post "/items/lost" => "items#lost"
+  post "/items/contact_seeker" => "items#contact_seeker"
+  post "/items/contact_founder" => "items#contact_founder"
   get "/users/logged" => "users#isLogged"
   get "/mailertest" => "users#mailertest"
   get "/welcome" => "users#show"
