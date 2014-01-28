@@ -209,7 +209,7 @@ function loadMarkers() {
           if (markerflag) {
             Marker = new google.maps.Marker({
               position: Latlng,
-              animation: google.maps.Animation.DROP,
+              // animation: google.maps.Animation.DROP,
               icon: image
             });
           } else {
@@ -252,7 +252,7 @@ function loadMarkers() {
           textSize: 1
         }
       ];
-      var mcOptions = {gridSize: 50, styles: clusterStyles, maxZoom: 16};
+      var mcOptions = {gridSize: 40, styles: clusterStyles, maxZoom: 15};
       var markerCluster = new MarkerClusterer(map, markers, mcOptions);
     }
   });
