@@ -16,7 +16,7 @@ $(function() {
     $('#dynamicDivWrap').hide();
 
     var mapOptions = {
-      zoom: 17,
+      zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       streetViewControl: false,
       panControl: false,
@@ -30,6 +30,12 @@ $(function() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+        //Place blue dot on current position
+        var userMarker = new google.maps.Marker({
+          position: pos,
+          map: map,
+          icon: "/assets/blueDot.png"
+        });
         map.setCenter(pos);
       }, function() {
         handleNoGeolocation(true);
@@ -160,6 +166,7 @@ function loadMarkers() {
       //Get map bounds to define which markers get displayed
       var bounds = map.getBounds();
 
+
       _.each(data, function(item) {
         var Marker;
         var contentString;
@@ -168,20 +175,21 @@ function loadMarkers() {
         var lngLeftBound;
         var lngRightBound;
 
+
         if (item["lat"]>=0) {
-          latTopBound = bounds["fa"]["b"];
-          latBotBound = bounds["fa"]["d"];
+          latTopBound = bounds["ta"]["b"];
+          latBotBound = bounds["ta"]["d"];
         } else {
-          latTopBound = bounds["fa"]["d"];
-          latBotBound = bounds["fa"]["b"];
+          latTopBound = bounds["ta"]["d"];
+          latBotBound = bounds["ta"]["b"];
         }
 
         if (item["lng"]>=0) {
-          lngLeftBound = bounds["la"]["b"];
-          lngRightBound = bounds["la"]["d"];
+          lngLeftBound = bounds["ia"]["b"];
+          lngRightBound = bounds["ia"]["d"];
         } else {
-          lngLeftBound = bounds["la"]["d"];
-          lngRightBound = bounds["la"]["b"];
+          lngLeftBound = bounds["ia"]["d"];
+          lngRightBound = bounds["ia"]["b"];
         }
 
         var image;
@@ -326,19 +334,20 @@ function closeDynamicDiv() {
 // Create new lost item in database
 function newLostItem() {
   title = document.getElementById('lostTitleField').value;
-  c1 = document.getElementById('lostCat1Field');
-  cat1 = c1.options[c1.selectedIndex].text;
-  c2 = document.getElementById('lostCat2Field');
-  cat2 = c2.options[c2.selectedIndex].text;
+  // c1 = document.getElementById('lostCat1Field');
+  // cat1 = c1.options[c1.selectedIndex].text;
+  // c2 = document.getElementById('lostCat2Field');
+  // cat2 = c2.options[c2.selectedIndex].text;
   desc = document.getElementById('lostItemDescField').value;
   date = document.getElementById('lostDateField').value;
   time = document.getElementById('lostTimeField').value;
   place = document.getElementById('lostPlaceField').value;
 
-  if (title === "" || cat2 === "-----" || desc === "" || date === "" || time === "" || place === "") {
+
+  if (title === "" /*|| cat2 === "-----"*/ || desc === "" || date === "" || time === "" || place === "") {
     $('#missingLostMessage').append("Please complete all the fields!");
   } else {
-    dataToStore = {title:title,cat1:cat1,cat2:cat2,
+    dataToStore = {title:title,/*cat1:cat1,cat2:cat2,*/
       desc:desc,date:date,time:time,place:place,
       latitude:generalLat,longitude:generalLng,
       status:'lost'};
@@ -347,7 +356,6 @@ function newLostItem() {
       type: "post",
       data: dataToStore,
       success: function(data) {
-        console.log(data);
       }
     });
 
@@ -360,20 +368,20 @@ function newLostItem() {
 // Create new found item in database
 function newFoundItem() {
   title = document.getElementById('foundTitleField').value;
-  c1 = document.getElementById('foundCat1Field');
-  cat1 = c1.options[c1.selectedIndex].text;
-  c2 = document.getElementById('foundCat2Field');
-  cat2 = c2.options[c2.selectedIndex].text;
+  // c1 = document.getElementById('foundCat1Field');
+  // cat1 = c1.options[c1.selectedIndex].text;
+  // c2 = document.getElementById('foundCat2Field');
+  // cat2 = c2.options[c2.selectedIndex].text;
   desc = document.getElementById('foundItemDescField').value;
   date = document.getElementById('foundDateField').value;
   time = document.getElementById('foundTimeField').value;
   place = document.getElementById('foundPlaceField').value;
   question = document.getElementById('foundQuestionField').value;
 
-  if (title === "" || cat2 === "-----" || desc === "" || date === "" || time === "" || place === "") {
+  if (title === "" /*|| cat2 === "-----"*/ || desc === "" || date === "" || time === "" || place === "") {
     $('#missingFoundMessage').append("Please complete all the fields!");
   } else {
-    dataToStore = {title:title,cat1:cat1,cat2:cat2,
+    dataToStore = {title:title,/*cat1:cat1,cat2:cat2,*/
       desc:desc,date:date,time:time,place:place,
       question:question,latitude:generalLat,longitude:generalLng,
       status:'found'};
@@ -382,7 +390,6 @@ function newFoundItem() {
       type: "post",
       data: dataToStore,
       success: function(data) {
-        console.log(data);
       }
     });
 

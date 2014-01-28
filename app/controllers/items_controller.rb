@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
     i.details = params[:desc]
     i.secret_info = params[:question]
     i.location = l
-    i.category = c
+    # i.category = c
     i.seeker_id = current_user.id
     i.save
 
