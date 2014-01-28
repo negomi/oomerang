@@ -252,7 +252,7 @@ function loadMarkers() {
           textSize: 1
         }
       ];
-      var mcOptions = {gridSize: 40, styles: clusterStyles, maxZoom: 15};
+      var mcOptions = {gridSize: 50, styles: clusterStyles, maxZoom: 15};
       var markerCluster = new MarkerClusterer(map, markers, mcOptions);
     }
   });
