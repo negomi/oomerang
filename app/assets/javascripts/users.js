@@ -37,9 +37,9 @@ function contactSeeker() {
       type: "post",
       data: {item: generalContent}
       }).done(function(data){
-        console.log(data[0]["item"]["id"]);
-        console.log("Finder: " + data[1]["email"]);
-        console.log("Seeker: " + data[2]["email"]);
+        // console.log(data[0]["item"]["id"]);
+        // console.log("Finder: " + data[1]["email"]);
+        // console.log("Seeker: " + data[2]["email"]);
 
         emailSent();
       });
