@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "no-reply@oomerang.it"
+  default from: "Oomerang <no-reply@oomerang.it>"
 
   def welcome_user_email(user, login_url)
     @user = user                     # This @user was created in the users_controller.rb's def create...
@@ -32,18 +32,20 @@ class UserMailer < ActionMailer::Base
   #   mail(to: @finder[:email], subject: 'Oomerang: Confirming you ' + @processed + ' a new found item...')
   # end
 
+
   def connect_to_seeker_email(item,finder,seeker)
     @item = item
     @finder = finder
     @seeker = seeker
-    mail(to: @seeker[:email], subject: 'Someone may have found your lost item!')
+    mail(to: @seeker.email, subject: 'Someone may have found your lost item!')
   end
 
-    def connect_to_finder_email(item,finder,seeker)
+  def connect_to_finder_email(item,answer,seeker,finder)
     @item = item
-    @finder = finder
+    @answer = answer
     @seeker = seeker
-    mail(to: @finder[:email], subject: 'Someone claims to be the owner of the item!')
+    @finder = finder
+    mail(to: @finder.email, subject: 'Someone might be the owner of the item you found!')
   end
 
 end
