@@ -1,6 +1,6 @@
 Hi <%= @seeker.name %>,
 
-<%= @finder.name %> may have found your lost item: <%= @item["title"] %> ...
+<%= @finder.name %> may have found your <%= @item["title"] %>...
 
     Found item details:
     Date lost: <%= @item["date"] %>
@@ -8,14 +8,14 @@ Hi <%= @seeker.name %>,
     Place lost: <%= @item["place"] %>
     Extra info: <%= @item["extra_info"] %>
 
-Please email <%= @finder.email %> to check if its yours, and arrange for its return.
-
+Please email <%= @finder.email %> to confirm it's yours, and arrange for its return.
 
 We hope your item is returned soon,
 
-The Oomerangers
+Team Oomerang
 
 ---------------
-Item returned? Please delete the lost item from your oomerang dashboard.
+
+Item returned? Please delete it from your Oomerang dashboard.
 
 Lost it? Found it? Oomerang.it!
