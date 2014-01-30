@@ -36,19 +36,40 @@ function contactSeeker() {
       url: "/items/contact_seeker",
       type: "post",
       data: {item: generalContent}
-      }).done(function(data){
-        // console.log(data[0]["item"]["id"]);
-        // console.log("Finder: " + data[1]["email"]);
-        // console.log("Seeker: " + data[2]["email"]);
-
-        emailSent();
+      }).done(function(){
+        // console.log(data);
+        emailSeeker();
       });
 
   }
 }
 
-function emailSent() {
+function emailSeeker() {
   var foundForm = JST['templates/emailForm']();
   $('#dynamicDiv').empty();
   $("#dynamicDiv").append(foundForm);
 }
+
+function emailFounder() {
+  var answer = $("#contentAnswer").val();
+  var foundForm = JST['templates/emailForm']();
+  $('#dynamicDiv').empty();
+  $("#dynamicDiv").append(foundForm);
+  $("#contentAnswer").val("hola");
+  $.ajax({
+    url: "/items/contact_founder",
+    type: "post",
+    data: {item: generalContent,
+          answer: answer}
+    }).done(function(){
+      // console.log(data);
+    });
+}
+
+
+
+
+
+
+
+

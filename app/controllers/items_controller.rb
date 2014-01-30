@@ -88,12 +88,15 @@ class ItemsController < ApplicationController
   def contact_seeker
     id = params[:item]["id"]
     u = User.find_by_id(Item.find_by_id(id).seeker_id)
-    # UserMailer.welcome_user_email(params[:item],current_user,u).deliver
-    render json: [params,current_user,u]
+    UserMailer.connect_to_seeker_email(params[:item],current_user,u).deliver
+    render :json => ['success']
   end
 
   def contact_founder
-
+    id = params[:item]["id"]
+    u = User.find_by_id(Item.find_by_id(id).seeker_id)
+    UserMailer.connect_to_finder_email(params[:item],params[:answer],current_user,u).deliver
+    render :json => ['success']
   end
 
 

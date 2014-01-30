@@ -1,24 +1,28 @@
 Hi <%= @finder.name %>,
 
-The item you found: <%= @found_item.title %>
+The item you found: <%= @item["title"] %>
 ... may be <%= @seeker.name %>'s lost item:
 
-    Name:    <%= @lost_item.title %>
-    Color:   <%= @lost_item.color %>
-    Details: <%= @lost_item.details %>
+    Date lost: <%= @item["date"] %>
+    Time lost: <%= @item["time"] %>
+    Place lost: <%= @item["place"] %>
+    Extra info: <%= @item["extra_info"] %>
 
-<%= @seeker.name %> provided the following additional specific information about their lost item:
+This is <%= @seeker.name %>'s answer to your secret question:
+Question:
+<%= @item["secret"] %>
 
-    <%= @lost_item.secret_info %>
+Answer:
+<%= @answer %>
 
 Please reply to <%= @seeker.email %> if you think its their item.
 
 
-Thanks for trying to making someone's life a little better,
+Thanks for trying to make someone's life a little better,
 
 The Oomerangers
 
 ---------------
-Item returned? Please update Oomerang here: <%= @returned_url %>
+Item returned? Please delete the lost item from your oomerang dashboard.<br/><br/>
 
 Lost it? Found it? Oomerang.it!

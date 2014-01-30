@@ -6,18 +6,20 @@
      <body >
           <p>
               Hi <%= @seeker.name %>,<br/><br/>
-              <%= @finder.name %> may have found your lost item: <%= @lost_item.title %> ...<br/><br/>
+              <%= @finder.name %> may have found your lost item: <%= @item["title"] %> ...<br/><br/>
               &nbsp;&nbsp;&nbsp;&nbsp;Found item details:
               &nbsp;&nbsp;&nbsp;&nbsp;<ul>
-                <li>Name: <%= @found_item.title %></li>
-                <li>Color: <%= @found_item.color %></li>
-                <li>Details: <%= @found_item.details %></li>
+                <li>Date lost: <%= @item["date"] %></li>
+                <li>Time lost: <%= @item["time"] %></li>
+                <li>Place lost: <%= @item["place"] %></li>
+                <li>Extra info: <%= @item["extra_info"] %></li>
               </ul>
               Please email <%= @finder.email %> to check if its yours, and arrange for its return.<br/><br/><br/>
               We hope your item is returned soon,<br/><br/>
               The Oomerangers<br/><br/>
               <hr>
-              Item returned? Please update Oomerang here: <%= @returned_url %><br/><br/>
+              Item returned? Please delete the lost item from your oomerang dashboard.<br/><br/>
+
               Lost it? Found it? <a href="http://www.oomerang.it">Oomerang.it</a>!<br/>
           </p>
      </body >
