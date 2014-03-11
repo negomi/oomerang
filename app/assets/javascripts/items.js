@@ -166,6 +166,8 @@ function loadMarkers() {
       //Get map bounds to define which markers get displayed
       var bounds = map.getBounds();
 
+      // console.log(bounds);
+
 
       _.each(data, function(item) {
         var Marker;
@@ -185,11 +187,11 @@ function loadMarkers() {
         }
 
         if (item["lng"]>=0) {
-          lngLeftBound = bounds.ia.b;
-          lngRightBound = bounds.ia.d;
+          lngLeftBound = bounds.fa.b;
+          lngRightBound = bounds.fa.d;
         } else {
-          lngLeftBound = bounds.ia.d;
-          lngRightBound = bounds.ia.b;
+          lngLeftBound = bounds.fa.d;
+          lngRightBound = bounds.fa.b;
         }
 
         var image;
