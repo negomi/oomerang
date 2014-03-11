@@ -179,19 +179,19 @@ function loadMarkers() {
 
 
         if (item["lat"]>=0) {
-          latTopBound = bounds.ta.b;
-          latBotBound = bounds.ta.d;
+          latTopBound = bounds.Aa.j;
+          latBotBound = bounds.Aa.k;
         } else {
-          latTopBound = bounds.ta.d;
-          latBotBound = bounds.ta.b;
+          latTopBound = bounds.Aa.k;
+          latBotBound = bounds.Aa.j;
         }
 
         if (item["lng"]>=0) {
-          lngLeftBound = bounds.fa.b;
-          lngRightBound = bounds.fa.d;
+          lngLeftBound = bounds.qa.j;
+          lngRightBound = bounds.qa.k;
         } else {
-          lngLeftBound = bounds.fa.d;
-          lngRightBound = bounds.fa.b;
+          lngLeftBound = bounds.qa.k;
+          lngRightBound = bounds.qa.j;
         }
 
         var image;
